@@ -1,0 +1,22 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+
+  - repo: local
+    hooks:
+      - id: install-dependencies
+        name: Install dependencies
+        entry: python etc/install_requirements.py
+        always_run: true
+        language: python
+
+      - id: generate-tables
+        name: Generate tables
+        entry: python etc/generate_tables.py
+        language: python
+        always_run: true
